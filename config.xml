@@ -6,6 +6,8 @@
 
 <name>CFC Adm</name>
 
+<icon src="imagens/AutoEscola_Icon.ico" plataform="android">
+
 <description>
 CFC Adm - Informações
 </description>
