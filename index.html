@@ -6,31 +6,22 @@
     <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
     <script src="js/jquery.min.js" type="text/javascript"></script>
     <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+    <script src="js/jquery.maskedinput.js" type="text/javascript"></script>
 </head>
 <body>
-<div data-role="page" id="page">
-    <div data-role="panel" id="panel">
-        <div data-role="content">
-            Olá Painel
-        </div>
-    </div>
-
-
+<div data-role="page" id="inicio">
     <div data-role="header">
-        <h1>
-            <!--<a href="#panel" data-role="button">Painel</a>-->
-            CFC Alunos</h1>
+        <h1>CFC Alunos</h1>
     </div>
     <div data-role="content">
-        <div class="form-group">
-            <label>DH CFC</label>
-            <input type="text" id="dhcfc" class="form-control">
-        </div>
-        <div class="form-group">
-            <label>CPF Aluno</label>
-            <input type="text" id="cpf" class="form-control">
-        </div>
-        <input type="button" class="btn btn-default" id="acessar" value="Acessar">
+
+        <label for="dhcfc">DH CFC</label>
+        <input type="text" name="dhcfc" id="dhcfc" value="" placeholder="Digite o DH. Ex: AB0000">
+
+        <label>CPF Aluno</label>
+        <input type="text" name="cpf" id="cpf" value="" placeholder="Digite o CPF Completo">
+
+        <button class="ui-btn ui-corner-all" id="acessar">Acessar</button>
     </div>
     <div data-role="footer">
         <h4>Aplicativo CFC</h4>
@@ -73,11 +64,30 @@
 </body>
 </html>
 <script type="text/javascript">
-    $(document).ready(function(){
-        $('#acessar').click(function(){
+    $(document).ready(function () {
+        $('#cpf').mask("999.999.999-99");
+        $('#acessar').click(function () {
             $.ajax({
-                url: 'http://www.cfc.adm.br/aulas_praticas/classe.php',
-                dataType : 'JSON',
+                url: 'http://cfc.adm.br/alunos/classe.php',
+                crossDomain : true,
+                dataType: 'text',
+                //contentType: "application/jsonp; charset=utf-8;",
+                type : 'POST',
+                jsonp : 'callback',
+                async : false,
+                data : {
+                    funcao_executar : 'validaLogin',
+                    parametros : {
+                        dh : $('#dhcfc').val(),
+                        cpf : $('#cpf').val()
+                    }
+                },
+                success : function(retorno){
+                    alert(retorno);
+                },
+                error : function (a, b, c){
+                    alert(c);
+                }
             })
         });
     });
