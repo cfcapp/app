@@ -67,11 +67,11 @@
     $(document).ready(function () {
         $('#cpf').mask("999.999.999-99");
         $('#acessar').click(function () {
-            var url = 'http://www.cfc.adm.br/alunos/classe.php'
+            var url = 'http://cfc.adm.br/alunos/classe.php'
             $.ajax({
                 url: url,
                 //crossDomain : true,
-                //dataType: 'text',
+                dataType: 'html',
                 //contentType: "application/jsonp; charset=utf-8;",
                 type : 'POST',
                 //jsonp : 'callback',
@@ -88,7 +88,7 @@
                 },
                 error : function (a, b, c){
                     alert(url);
-                    alert(c);
+                    alert(a  + ' --- ' + b + ' --- ' + c);
                 }
             })
         });
