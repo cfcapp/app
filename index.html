@@ -68,12 +68,12 @@
         $('#cpf').mask("999.999.999-99");
         $('#acessar').click(function () {
             $.ajax({
-                url: 'http://cfc.adm.br/alunos/classe.php',
-                crossDomain : true,
-                dataType: 'text',
+                url: 'http://www.cfc.adm.br/alunos/classe.php',
+                //crossDomain : true,
+                //dataType: 'text',
                 //contentType: "application/jsonp; charset=utf-8;",
                 type : 'POST',
-                jsonp : 'callback',
+                //jsonp : 'callback',
                 async : false,
                 data : {
                     funcao_executar : 'validaLogin',

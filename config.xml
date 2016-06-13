@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<widget xmlns = "http://www.w3.org/ns/widgets"
-    xmlns:gap = "http://phonegap.com/ns/1.0"
-    id        = "cfc.adm.br"
-    version   = "1.0.0">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="cfc.adm.br" version="1.0.0">
 
-<name>CFC Adm</name>
 
-<description>
-CFC Adm - Informações
-</description>
+    <name>CFC Adm</name>
 
-<author href="http://cfc.adm.br" email="app@cfc.adm.br">
-CFC Adm
-</author>
+    <description>CFC Adm - Informações</description>
 
-    <icon src="icon.png" />
+    <author href="http://cfc.adm.br" email="app@cfc.adm.br">CFC Adm</author>
+
+
+    <icon src="icon.png"/>
+    <content src="index.html" />
+    <access origin="*" />
 </widget>
